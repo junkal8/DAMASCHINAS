@@ -1,6 +1,8 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 from tkinter import messagebox
+import webbrowser
+
 root = tk.Tk()
 root.resizable(0, 0)
 frain=tk.Frame(root, width = 700,height = 600)
@@ -8,7 +10,8 @@ frain.pack()
 canvas = tk.Canvas(frain, width = 600,height = 500, bg = "white", highlightbackground = 'white')
 canvas.pack()
 frain2=tk.Frame(root, width = 700,height = 600)
-
+new = 1
+url = "https://es.wikipedia.org/wiki/Damas_chinas"
 
 # Logo de inicio
 img1 = Image.open("ima.gif")
@@ -94,6 +97,8 @@ def gamen():
     cantab.pack(ipadx=10, ipady=10)
     tablero()
 
+def openweb():
+    webbrowser.open(url,new=new)
 
 # layout del inicio
 img1_lab = tk.Label(canvas, image = img1, highlightbackground = 'white' ).grid(row = 0, column = 2)
@@ -108,7 +113,7 @@ bot1.grid(row= 3, column = 2)
 canmen = tk.Canvas(frain2, width = 600,height = 500, bg = "white", highlightbackground = 'white')
 bot2 = tk.Button(canmen, text= "Iniciar partida", highlightbackground = 'white',command = gamen)
 
-bot3 = tk.Button(canmen, text="Instrucciones", highlightbackground = 'white')
+bot3 = tk.Button(canmen, text="Instrucciones", highlightbackground = 'white', command = openweb)
 
 bot4 =tk.Button(canmen, text="Salir del Juego", command = root.quit, highlightbackground = 'white')
 
