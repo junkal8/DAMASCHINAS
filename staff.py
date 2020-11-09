@@ -1,22 +1,27 @@
 from tkinter import *
-from random import randint
+
+class Application(Frame):
+
+    def __init__(self, master):
+        super(Application, self).__init__(master)
+        self.grid()
+        self.bttn_clicks = 0
+        self.create_widget()
+
+    def create_widget(self):
+        self.bttn = Button(self)
+        self.bttn['text'] = "Total Clicks: 0"
+        self.bttn['command'] = self.update_count
+        self.bttn.grid()
+
+    def update_count(self):
+        self.bttn_clicks += 1
+        self.bttn['text'] = "Total Clicks: " + str(self.bttn_clicks)
 
 root = Tk()
+root.title("Click Counter")
+root.geometry('200x50')
 
-canvas = Canvas(root, width=200, height=200)
-canvas.pack()
-
-def click(event):
-    if canvas.find_withtag(CURRENT):
-        canvas.itemconfig(CURRENT, fill="blue")
-        canvas.update_idletasks()
-        canvas.after(200)
-        canvas.itemconfig(CURRENT, fill="red")
-
-for i in range(100):
-    x, y = randint(0, 200-1), randint(0, 200-1)
-    canvas.create_oval(x-5, y-5, x+5, y+5, fill="red")
-
-canvas.bind("<Button-1>", click)
+app = Application(root)
 
 root.mainloop()
