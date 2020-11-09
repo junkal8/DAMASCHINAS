@@ -130,22 +130,5 @@ def click(event):
         cantab.after(200)
         cantab.itemconfig(CURRENT, fill="red")
 
-"""""""""
-#layout de instrucciones
-canins = tk.Canvas(root, width = 600,height = 500, bg = "white", highlightbackground = 'white')
-img2 = Image.open("reglas.png")
-img2 = image.resize((300, 100), Image.ANTIALIAS)
-img2 = ImageTk.PhotoImage(img2)
-lab3 = tk.Label(canins, image = img2, highlightbackground = 'white' )
-bot5 =tk.Button(canins, text="Continuar", command = inst2, highlightbackground = 'white')
-img3 = Image.open("estrategia.png")
-img3 = image.resize((300, 100), Image.ANTIALIAS)
-img3 = ImageTk.PhotoImage(img3)
-lab4 = tk.Label(canins, image = img3, highlightbackground = 'white' )
-img4 = Image.open("Final.png")
-img4 = image.resize((300, 100), Image.ANTIALIAS)
-img4 = ImageTk.PhotoImage(img4)
-lab5 = tk.Label(canins, image = img4, highlightbackground = 'white' )
-"""""
 cantab.bind("<Button-1>", click)
 root.mainloop()
